@@ -1,10 +1,10 @@
 import { Router } from "express";
-import { createSubcategory, deleteSubcategory, getSubcategories, getSubcategory, updateSubcategory } from "../controllers/subCategories";
+import { createSubcategory, deleteSubcategory, filterData, getSubcategories, getSubcategory, updateSubcategory } from "../controllers/subCategories";
 import { createSubcategoryValidator, deleteSubcategoryValidator, getSubcategoryValidator, updateSubcategoryValidator } from "../utils/validation/subcategoriesValidator";
-const subcategoriesRoute: Router = Router();
+const subcategoriesRoute: Router = Router({ mergeParams: true });
 
 subcategoriesRoute.route('/')
-  .get(getSubcategories)
+  .get(filterData, getSubcategories)
   .post(createSubcategoryValidator, createSubcategory);
 
 subcategoriesRoute.route('/:id')
