@@ -8,7 +8,7 @@ const app: express.Application = express()
 let server: Server;
 dotenv.config();
 app.use(express.json())
-
+app.use(express.static('uploads'))
 database();
 mountRoutes(app);
 server = app.listen(process.env.PORT, () => {
