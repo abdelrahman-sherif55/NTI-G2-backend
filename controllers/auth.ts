@@ -98,7 +98,7 @@ export const resetCode = asyncHandler(async (req: Request, res: Response, next: 
   user.resetCodeVerify = undefined;
   user.passwordChangedAt = Date.now();
   await user.save({ validateModifiedOnly: true });
-  res.status(200).json({message:'your password has been changed'});
+  res.status(200).json({ message: 'your password has been changed' });
 });
 
 export const allowedTo = (...roles: string[]) => asyncHandler(async (req: Request, res: Response, next: NextFunction) => {
