@@ -16,7 +16,7 @@ let server: Server;
 dotenv.config();
 app.use(express.json({ limit: '10kb' }))
 app.use(cors({
-  origin: ['http://localhost:4200', 'https://dramcode.top'],
+  origin: ['http://localhost:4200', 'https://project.nti.giize.com'],
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   allowedHeaders: ['Content-Type', 'Authorization'],
   credentials: true
