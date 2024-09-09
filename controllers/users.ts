@@ -55,7 +55,7 @@ export const updateLoggedUser = asyncHandler(async (req: Request, res: Response,
   res.status(200).json({ data: user, message: 'user updated successfully' })
 })
 export const changeLoggedUserPassword = asyncHandler(async (req: Request, res: Response, next: NextFunction) => {
-  const user = await usersModel.findByIdAndUpdate(req.user?.id, {
+  const user = await usersModel.findByIdAndUpdate(req.user?._id, {
     password: await bcrypt.hash(req.body.password, 13),
     passwordChangedAt: Date.now()
   }, { new: true })
